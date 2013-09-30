@@ -1,0 +1,104 @@
+setwd("~/Your-Working-Directory")
+setwd("~/Your-Working-Directoru")
+setwd("aldsksldk")
+library(maptools)
+gpclibPermit()
+library(RColorsBrewer)
+setwd("~/YOUR-WORKING-DIRECTORY")#
+#
+# we'll need these packages#
+library(maptools)#
+library(RColorBrewer)#
+#
+# load our data#
+data <- read.delim("merged-multirace.txt")#
+#
+# load the shape file#
+shapes <- readShapePoly("shapes/ca/counties.shp")#
+#
+#a data frame of the map attribute data#
+map_data <- data.frame(shapes)#
+#
+#string work to add a leading zero and make a new vector that matches map_data's fips code.#
+data$FIPS <- sprintf("%05d",data$fips)#
+#
+#2010 only#
+data <- subset(data, year == 2010)#
+#
+#match order of data and shapes fields#
+match_order <- match(map_data$FIPS,data$FIPS)#
+#
+#add this field to map_data#
+map_data$pctHispanic2010 <- data$pcthispanic[match_order]#
+#
+#these can be changed...picked manually depending on our distribution#
+map_breaks <- c(0, .1, .2, .3, .4, 1)#
+#
+#assign the data to one of these buckets#
+buckets <- cut(map_data$pctHispanic2010,breaks=map_breaks)#
+numeric_buckets <- as.numeric(buckets)#
+#
+#a vector of 5 colors.#
+colors <- brewer.pal(5,"YlOrRd")#
+#
+#plot#
+plot(shapes, col=colors[numeric_buckets])
+setwd("~/dataviz-fall-2013/maps-intro/")
+data <- read.delim("merged-multirace.txt")
+head(data)
+install.packages("maptools")
+libary(maptools)
+install.packages("maptools")
+shapes <- readShapePoly("shapes/ca/counties.shp")
+library(maptools)
+head(data)
+shapes<- readShapePoly("shapes/ca/counties.shp")
+shapes <- readShapePoly("shapes/ca/counties.shp")
+plot(shapes)
+install.packages("maptools")
+library(maptools)
+shapes <- readShapePoly("shapes/ca/counties.shp")
+shapes <- readShapePoly("shapes/ca/counties.shp")
+shapes <- readShapePoly("ca/counties.shp")
+plot(shapes)
+data.frame(shapes)
+map_data <- data.frames(shapes)
+map_data <- data.frame(shapes)
+y2010 <- subset(data, year== 2010)
+data$FIPS <- sprintf("%05d, data$fips")
+data$FIPS <- sprintf("%05d", data$fips)
+data$FIPS%in%map_data$FIPS
+logical(0)
+match(map_data$FIPS, y2010$FIPS)
+y2010
+y2010$FIPS <- sprintf("%05d",data$fips)
+y2010$FIPS <- sprintf("%05d",data$FIPS)
+y2010$FIPS <- sprintf("%05d", y2010$FIPS)
+y2010$FIPS <- sprintf("%05d", y2010$fips)
+head(y2010)
+match(map_data$FIPS, y2010$FIPS)
+match_order <- match(map_data$FIPS, y2010$FIPS)
+y2010pcthispanic
+y2010$pcthispanic
+y2010$pcthispanic[match_order]
+map_data$pcthispanic2010 <- y2010$pcthispanic[match_order]
+hist(map_data$pcthispanic2010)
+map_breaks <- c(0, .1, .2, .3, .4, 1)
+buckets <- cut(map_data$pcthispanic2010, breaks = map_breaks)
+numeric_buckets <- as.numeric(buckets)
+colors <- brewer.pal(5, "PuRd")
+install.packages("RColorBrewer")
+library(RColorBrewer)
+display.brewer.all()
+colors <- brewer.pal(5, "PuRd")
+colors[numeric_buckets]
+plot(shapes, col=collors[numeric_buckets])
+plot(shapes, col=colors[numeric_buckets])
+title("Percent of Hispanic Population by County in 2010")
+?legend
+legend(x, y=NULL, legend, fill=NULL, col= colors)
+legend("bottomleft", legend, fill=NULL, col=colors)
+legend("bottomleft", cex=.75, pch=16, col=colors, legend=c(numeric_buckets, ncol=2))
+legend("bottomleft", col=colors, legend=c(y2010$pcthispanic), ncol=2, lty=c(1:1), lwd=c(2.5, 2.5), c("text"))
+df$x <- NULL
+legend("bottomleft", col=colors, legend=c(y2010$pcthispanic), ncol=2, lty=c(1:1), lwd=c(2.5, 2.5), c("text"))df$x <- NULL

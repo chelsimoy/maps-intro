@@ -1,0 +1,327 @@
+
+R version 3.0.1 (2013-05-16) -- "Good Sport"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.61 (6492) x86_64-apple-darwin10.8.0]
+
+[History restored from /Users/chelsimoy/.Rapp.history]
+
+> setwd("~/dataviz-fall-2013/maps-intro/")
+> 
+> data <- read.delim("merged-multirace.txt")
+> head(data)
+     county totalpop  pctwhite    pctblack    pctamind    pctasian   pctother pcthispanic year fips
+1   Alameda  1510271 0.3407064 0.121915868 0.002773674 0.266478665 0.04307373  0.22505166 2010 6001
+2    Alpine     1175 0.7251064 0.000000000 0.178723404 0.005957447 0.01872340  0.07148936 2010 6003
+3    Amador    38091 0.7961198 0.024625240 0.014360348 0.012050091 0.02798561  0.12485889 2010 6005
+4     Butte   220000 0.7518909 0.014240909 0.015431818 0.042372727 0.03462727  0.14143636 2010 6007
+5 Calaveras    45578 0.8353592 0.007788845 0.011540656 0.013164246 0.02896134  0.10318575 2010 6009
+6    Colusa    21419 0.3979644 0.007843503 0.013819506 0.015220132 0.01405294  0.55109949 2010 6011
+> 
+> 
+> install.packages("maptools")
+--- Please select a CRAN mirror for use in this session ---
+trying URL 'http://streaming.stat.iastate.edu/CRAN/bin/macosx/contrib/3.0/maptools_0.8-27.tgz'
+Content type 'application/x-gzip' length 1685966 bytes (1.6 Mb)
+opened URL
+==================================================
+downloaded 1.6 Mb
+
+
+The downloaded binary packages are in
+	/var/folders/7m/plddkv853tg532crqjdcs8kw0000gn/T//RtmpLnXU3L/downloaded_packages
+lib
+> libary(maptools)
+Error: could not find function "libary"
+> install.packages("maptools")
+trying URL 'http://streaming.stat.iastate.edu/CRAN/bin/macosx/contrib/3.0/maptools_0.8-27.tgz'
+Content type 'application/x-gzip' length 1685966 bytes (1.6 Mb)
+opened URL
+==================================================
+downloaded 1.6 Mb
+
+
+The downloaded binary packages are in
+	/var/folders/7m/plddkv853tg532crqjdcs8kw0000gn/T//RtmpLnXU3L/downloaded_packages
+> shapes <- readShapePoly("shapes/ca/counties.shp")
+Error: could not find function "readShapePoly"
+> library(maptools)
+Loading required package: sp
+Checking rgeos availability: FALSE
+ 	Note: when rgeos is not available, polygon geometry 	computations in maptools depend on gpclib,
+ 	which has a restricted licence. It is disabled by default;
+ 	to enable gpclib, type gpclibPermit()
+> head(data)
+     county totalpop  pctwhite    pctblack    pctamind    pctasian   pctother pcthispanic year fips
+1   Alameda  1510271 0.3407064 0.121915868 0.002773674 0.266478665 0.04307373  0.22505166 2010 6001
+2    Alpine     1175 0.7251064 0.000000000 0.178723404 0.005957447 0.01872340  0.07148936 2010 6003
+3    Amador    38091 0.7961198 0.024625240 0.014360348 0.012050091 0.02798561  0.12485889 2010 6005
+4     Butte   220000 0.7518909 0.014240909 0.015431818 0.042372727 0.03462727  0.14143636 2010 6007
+5 Calaveras    45578 0.8353592 0.007788845 0.011540656 0.013164246 0.02896134  0.10318575 2010 6009
+6    Colusa    21419 0.3979644 0.007843503 0.013819506 0.015220132 0.01405294  0.55109949 2010 6011
+> shapes<- readShapePoly("shapes/ca/counties.shp")
+Error in getinfo.shape(filen) : Error opening SHP file
+> shapes <- readShapePoly("shapes/ca/counties.shp")
+Error in getinfo.shape(filen) : Error opening SHP file
+> 
+> plot(shapes)
+Error in plot(shapes) : 
+  error in evaluating the argument 'x' in selecting a method for function 'plot': Error: object 'shapes' not found
+> install.packages("maptools")
+trying URL 'http://streaming.stat.iastate.edu/CRAN/bin/macosx/contrib/3.0/maptools_0.8-27.tgz'
+Content type 'application/x-gzip' length 1685966 bytes (1.6 Mb)
+opened URL
+==================================================
+downloaded 1.6 Mb
+
+
+The downloaded binary packages are in
+	/var/folders/7m/plddkv853tg532crqjdcs8kw0000gn/T//RtmpLnXU3L/downloaded_packages
+> library(maptools)
+>  shapes <- readShapePoly("shapes/ca/counties.shp")
+Error in getinfo.shape(filen) : Error opening SHP file
+> shapes <- readShapePoly("shapes/ca/counties.shp")
+Error in getinfo.shape(filen) : Error opening SHP file
+> shapes <- readShapePoly("ca/counties.shp")
+> plot(shapes)
+> data.frame(shapes)
+         AREA  PERIMETER COUNTYP010 STATE                 COUNTY  FIPS STATE_FIPS SQUARE_MIL
+0  1.77530515  7.1642054        750    CA        Siskiyou County 06093         06   6347.387
+1  0.28402968  3.0286819        763    CA       Del Norte County 06015         06   1013.179
+2  1.17502515  4.5393322        767    CA           Modoc County 06049         06   4201.326
+3  0.98917598  5.9736123        863    CA        Humboldt County 06023         06   3584.422
+4  0.88423997  6.0648607        886    CA         Trinity County 06105         06   3206.456
+5  1.30164242  5.9735602        913    CA          Lassen County 06035         06   4718.470
+6  1.06266362  5.5475685        914    CA          Shasta County 06089         06   3847.073
+7  0.81034297  4.9747427       1091    CA          Tehama County 06103         06   2961.163
+8  0.71381273  5.2001192       1092    CA          Plumas County 06063         06   2612.985
+9  0.45644785  4.1346054       1155    CA           Butte County 06007         06   1678.974
+10 0.95222951  5.5041586       1182    CA       Mendocino County 06045         06   3513.883
+11 0.35942431  3.2688815       1230    CA           Glenn County 06021         06   1323.305
+12 0.25930987  2.9485006       1237    CA          Sierra County 06091         06    955.009
+13 0.17447612  2.7774583       1272    CA            Yuba County 06115         06    645.409
+14 0.35916993  3.5921766       1284    CA            Lake County 06033         06   1331.757
+15 0.26464660  3.4472820       1310    CA          Nevada County 06057         06    978.517
+16 0.31286052  3.1071708       1326    CA          Colusa County 06011         06   1158.861
+17 0.40400615  4.2404053       1350    CA          Placer County 06061         06   1498.782
+18 0.16409151  2.7226304       1355    CA          Sutter County 06101         06    608.991
+19 0.48020689  3.6796268       1415    CA       El Dorado County 06017         06   1788.512
+20 0.19820750  2.1148759       1446    CA          Alpine County 06003         06    740.072
+21 0.27459938  3.3014944       1449    CA            Yolo County 06113         06   1024.031
+22 0.21010479  2.8566215       1463    CA            Napa County 06055         06    785.442
+23 0.42537754  3.7145095       1466    CA          Sonoma County 06097         06   1589.751
+24 0.26348841  3.3613843       1493    CA      Sacramento County 06067         06    985.735
+25 0.83019131  5.5583156       1498    CA            Mono County 06051         06   3127.608
+26 0.16046295  2.8282503       1501    CA          Amador County 06005         06    600.367
+27 0.22476569  3.6340462       1540    CA          Solano County 06095         06    842.859
+28 0.27608519  2.8902545       1553    CA       Calaveras County 06009         06   1036.348
+29 0.60523793  4.8853441       1570    CA        Tuolumne County 06109         06   2277.323
+30 0.13998588  3.4170035       1591    CA           Marin County 06041         06    526.414
+31 0.37898717  3.3395276       1593    CA     San Joaquin County 06077         06   1427.799
+32 0.19470327  3.0420085       1650    CA    Contra Costa County 06013         06    733.711
+33 0.39948150  3.6396951       1656    CA      Stanislaus County 06099         06   1512.528
+34 0.19686576  3.1951783       1699    CA         Alameda County 06001         06    744.536
+35 0.38670302  3.3368131       1703    CA        Mariposa County 06043         06   1463.714
+36 0.01272641  0.8166778       1714    CA   San Francisco County 06075         06     48.060
+37 0.56578262  4.7803809       1726    CA          Madera County 06039         06   2151.796
+38 0.11950292  2.3564298       1748    CA       San Mateo County 06081         06    453.282
+39 0.51855889  3.4360897       1761    CA          Merced County 06047         06   1972.821
+40 1.57111213  8.7037902       1779    CA          Fresno County 06019         06   6010.780
+41 0.34163333  3.3734115       1798    CA     Santa Clara County 06085         06   1299.080
+42 2.66383545  8.7337475       1809    CA            Inyo County 06027         06  10223.468
+43 0.11761913  2.1759099       1858    CA      Santa Cruz County 06087         06    448.274
+44 0.36350954  3.4952907       1927    CA      San Benito County 06069         06   1393.479
+45 0.86008315  6.0441747       1944    CA        Monterey County 06053         06   3313.216
+46 1.25893424  5.2986600       1966    CA          Tulare County 06107         06   4849.511
+47 0.35947397  2.8595559       2036    CA           Kings County 06031         06   1387.258
+48 5.13037571 10.4096546       2160    CA  San Bernardino County 06071         06  20097.792
+49 0.85050602  5.9646641       2161    CA San Luis Obispo County 06079         06   3310.169
+50 2.09459432  7.2200159       2162    CA            Kern County 06029         06   8156.498
+51 0.70084996  6.2740939       2283    CA   Santa Barbara County 06083         06   2751.192
+52 0.47163137  3.7598259       2324    CA         Ventura County 06111         06   1856.170
+53 1.03496598  7.6075616       2334    CA     Los Angeles County 06037         06   4079.506
+54 1.84350617  7.9365313       2461    CA       Riverside County 06065         06   7316.183
+55 0.20078928  2.6234849       2489    CA          Orange County 06059         06    797.156
+56 1.06083808  5.9299186       2551    CA       San Diego County 06073         06   4243.426
+57 1.12391091  5.0328825       2566    CA        Imperial County 06025         06   4495.635
+> map_data <- data.frames(shapes)
+Error: could not find function "data.frames"
+> map_data <- data.frame(shapes)
+> y2010 <- subset(data, year== 2010)
+> data$FIPS <- sprintf("%05d, data$fips")
+Error in sprintf("%05d, data$fips") : too few arguments
+> data$FIPS <- sprintf("%05d", data$fips)
+> data$FIPS%in%map_data$FIPS
+  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [23] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [45] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [67] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [89] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[111] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[133] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[155] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[177] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[199] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[221] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[243] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[265] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[287] TRUE TRUE TRUE TRUE
+> logical(0)
+logical(0)
+> match(map_data$FIPS, y2010$FIPS)
+ [1] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+[39] NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA NA
+> y2010
+            county totalpop  pctwhite    pctblack    pctamind    pctasian    pctother pcthispanic year fips
+1          Alameda  1510271 0.3407064 0.121915868 0.002773674 0.266478665 0.043073727  0.22505166 2010 6001
+2           Alpine     1175 0.7251064 0.000000000 0.178723404 0.005957447 0.018723404  0.07148936 2010 6003
+3           Amador    38091 0.7961198 0.024625240 0.014360348 0.012050091 0.027985613  0.12485889 2010 6005
+4            Butte   220000 0.7518909 0.014240909 0.015431818 0.042372727 0.034627273  0.14143636 2010 6007
+5        Calaveras    45578 0.8353592 0.007788845 0.011540656 0.013164246 0.028961341  0.10318575 2010 6009
+6           Colusa    21419 0.3979644 0.007843503 0.013819506 0.015220132 0.014052944  0.55109949 2010 6011
+7     Contra Costa  1049025 0.4775129 0.089229523 0.002844546 0.146100427 0.040695884  0.24361669 2010 6013
+8        Del Norte    28610 0.6470814 0.033799371 0.067633695 0.033694512 0.039776302  0.17801468 2010 6015
+9        El Dorado   181058 0.7991307 0.007157927 0.008577362 0.035369881 0.028946525  0.12081764 2010 6017
+10          Fresno   930450 0.3272846 0.048369069 0.006425923 0.094494062 0.020368639  0.50305766 2010 6019
+11           Glenn    28122 0.5588863 0.006827395 0.016961809 0.024749307 0.017815234  0.37475997 2010 6021
+12        Humboldt   134623 0.7722157 0.010347415 0.051707361 0.023666090 0.043930086  0.09813331 2010 6023
+13        Imperial   174528 0.1370955 0.029301889 0.009408232 0.013109644 0.007368445  0.80371631 2010 6025
+14            Inyo    18546 0.6630001 0.005499838 0.102178367 0.013156476 0.022215033  0.19395018 2010 6027
+15            Kern   839631 0.3856385 0.054043979 0.007018559 0.040607124 0.020769838  0.49192205 2010 6029
+16           Kings   152982 0.3521918 0.067419696 0.008478122 0.036389902 0.026532533  0.50898799 2010 6031
+17            Lake    64665 0.7413284 0.018340679 0.023660404 0.012247738 0.032954458  0.17146834 2010 6033
+18          Lassen    34895 0.6668577 0.079954148 0.028628743 0.014328700 0.034933372  0.17529732 2010 6035
+19     Los Angeles  9818605 0.2778726 0.083014440 0.001923491 0.137304128 0.022435774  0.47744960 2010 6037
+20          Madera   150865 0.3803400 0.033201869 0.011864912 0.017499089 0.020243264  0.53685083 2010 6039
+21           Marin   252409 0.7283021 0.026231236 0.002103728 0.055517038 0.033061420  0.15478450 2010 6041
+22        Mariposa    18251 0.8323927 0.007068106 0.025149307 0.012437675 0.031121582  0.09183059 2010 6043
+23       Mendocino    87841 0.6858870 0.006193008 0.039685341 0.017008003 0.029177719  0.22204893 2010 6045
+24          Merced   255793 0.3190040 0.034344177 0.004401997 0.072945702 0.020090464  0.54921362 2010 6047
+25           Modoc     9686 0.7896965 0.007949618 0.030249845 0.009395003 0.024158579  0.13855049 2010 6049
+26            Mono    14202 0.6820870 0.002957330 0.016828616 0.014223349 0.019011407  0.26489227 2010 6051
+27        Monterey   415057 0.3287139 0.027225176 0.003279068 0.061786694 0.024847190  0.55414798 2010 6053
+28            Napa   136484 0.5639269 0.017877553 0.003985815 0.068132528 0.023621816  0.32245538 2010 6055
+29          Nevada    98764 0.8654672 0.003452675 0.008029241 0.012352679 0.025252116  0.08544611 2010 6057
+30          Orange  3010232 0.4413278 0.014616814 0.002064957 0.179665222 0.025815286  0.33650994 2010 6059
+31          Placer   348432 0.7613939 0.012705492 0.005969601 0.059294209 0.032319075  0.12831772 2010 6061
+32          Plumas    20007 0.8504523 0.009046834 0.022991953 0.007247463 0.030039486  0.08022192 2010 6063
+33       Riverside  2189641 0.3968998 0.059746324 0.004992143 0.060178815 0.023653192  0.45452976 2010 6065
+34      Sacramento  1418788 0.4843331 0.098639825 0.005550512 0.149453618 0.046207749  0.21581519 2010 6067
+35      San Benito    55269 0.3827462 0.006423131 0.004179558 0.024661202 0.017731459  0.56425844 2010 6069
+36  San Bernardino  2035210 0.3329376 0.083873409 0.004187774 0.063788503 0.023300298  0.49191238 2010 6071
+37       San Diego  3095313 0.4846188 0.047361931 0.004554628 0.110348130 0.032842559  0.32027391 2010 6073
+38   San Francisco   805235 0.4190715 0.058096084 0.002270145 0.333850367 0.035484051  0.15122790 2010 6075
+39     San Joaquin   685306 0.3588455 0.070829673 0.004638804 0.142702676 0.034337945  0.38864536 2010 6077
+40 San Luis Obispo   269637 0.7109410 0.019018161 0.005069779 0.031345846 0.026038711  0.20758650 2010 6079
+41       San Mateo   718451 0.4225883 0.026115908 0.001565869 0.258636984 0.037071422  0.25402150 2010 6081
+42   Santa Barbara   423895 0.4791800 0.017084419 0.004347775 0.047820805 0.022953798  0.42861322 2010 6083
+43     Santa Clara  1781642 0.3518715 0.023759543 0.002268694 0.320893872 0.032235432  0.26897098 2010 6085
+44      Santa Cruz   262382 0.5960660 0.008781090 0.003727390 0.041733046 0.029197887  0.32049455 2010 6087
+45          Shasta   177223 0.8240691 0.008114071 0.023484536 0.025555374 0.034826179  0.08395073 2010 6089
+46          Sierra     3240 0.8811728 0.001543210 0.012654321 0.004320988 0.017283951  0.08302469 2010 6091
+47        Siskiyou    44900 0.7947216 0.012293987 0.034498886 0.013296214 0.042405345  0.10278396 2010 6093
+48          Solano   413344 0.4079604 0.142116494 0.004509561 0.150649338 0.054392951  0.24037122 2010 6095
+49          Sonoma   483878 0.6613795 0.013989063 0.007406826 0.039702156 0.028637384  0.24888505 2010 6097
+50      Stanislaus   514453 0.4673372 0.025395906 0.005578741 0.053898024 0.028591533  0.41919864 2010 6099
+51          Sutter    94737 0.5043647 0.018081637 0.009763873 0.144589759 0.035551052  0.28764896 2010 6101
+52          Tehama    63463 0.7185762 0.005499267 0.018987442 0.010856720 0.026960591  0.21911980 2010 6103
+53         Trinity    13786 0.8354853 0.003264181 0.040475845 0.007906572 0.043304802  0.06956332 2010 6105
+54          Tulare   442179 0.3255130 0.012431617 0.007515056 0.032959503 0.015344465  0.60623639 2010 6107
+55        Tuolumne    55365 0.8186580 0.020121015 0.014991421 0.010692676 0.028646257  0.10689063 2010 6109
+56         Ventura   823318 0.4868933 0.015889365 0.002901673 0.067351862 0.024243366  0.40272046 2010 6111
+57            Yolo   200849 0.4990814 0.023659565 0.005466793 0.131725824 0.036589677  0.30347674 2010 6113
+58            Yuba    72155 0.5878456 0.029408911 0.017462407 0.069018086 0.046095212  0.25016977 2010 6115
+> 
+> 
+> y2010$FIPS <- sprintf("%05d",data$fips)
+Error in `$<-.data.frame`(`*tmp*`, "FIPS", value = c("06001", "06003",  : 
+  replacement has 290 rows, data has 58
+> y2010$FIPS <- sprintf("%05d",data$FIPS)
+Error in sprintf("%05d", data$FIPS) : 
+  invalid format '%05d'; use format %s for character objects
+> y2010$FIPS <- sprintf("%05d", y2010$FIPS)
+Error in `$<-.data.frame`(`*tmp*`, "FIPS", value = character(0)) : 
+  replacement has 0 rows, data has 58
+> y2010$FIPS <- sprintf("%05d", y2010$fips)
+> head(y2010)
+     county totalpop  pctwhite    pctblack    pctamind    pctasian   pctother pcthispanic year fips  FIPS
+1   Alameda  1510271 0.3407064 0.121915868 0.002773674 0.266478665 0.04307373  0.22505166 2010 6001 06001
+2    Alpine     1175 0.7251064 0.000000000 0.178723404 0.005957447 0.01872340  0.07148936 2010 6003 06003
+3    Amador    38091 0.7961198 0.024625240 0.014360348 0.012050091 0.02798561  0.12485889 2010 6005 06005
+4     Butte   220000 0.7518909 0.014240909 0.015431818 0.042372727 0.03462727  0.14143636 2010 6007 06007
+5 Calaveras    45578 0.8353592 0.007788845 0.011540656 0.013164246 0.02896134  0.10318575 2010 6009 06009
+6    Colusa    21419 0.3979644 0.007843503 0.013819506 0.015220132 0.01405294  0.55109949 2010 6011 06011
+> 
+> match(map_data$FIPS, y2010$FIPS)
+ [1] 47  8 25 12 53 18 45 52 32  4 23 11 46 58 17 29  6 31 51  9  2 57 28 49 34 26  3 48  5 55 21 39  7 50  1 22 38 20
+[39] 41 24 10 43 14 44 35 27 54 16 36 40 15 42 56 19 33 30 37 13
+> 
+> match_order <- match(map_data$FIPS, y2010$FIPS)
+> 
+> 
+> y2010pcthispanic
+Error: object 'y2010pcthispanic' not found
+> y2010$pcthispanic
+ [1] 0.22505166 0.07148936 0.12485889 0.14143636 0.10318575 0.55109949 0.24361669 0.17801468 0.12081764 0.50305766
+[11] 0.37475997 0.09813331 0.80371631 0.19395018 0.49192205 0.50898799 0.17146834 0.17529732 0.47744960 0.53685083
+[21] 0.15478450 0.09183059 0.22204893 0.54921362 0.13855049 0.26489227 0.55414798 0.32245538 0.08544611 0.33650994
+[31] 0.12831772 0.08022192 0.45452976 0.21581519 0.56425844 0.49191238 0.32027391 0.15122790 0.38864536 0.20758650
+[41] 0.25402150 0.42861322 0.26897098 0.32049455 0.08395073 0.08302469 0.10278396 0.24037122 0.24888505 0.41919864
+[51] 0.28764896 0.21911980 0.06956332 0.60623639 0.10689063 0.40272046 0.30347674 0.25016977
+> y2010$pcthispanic[match_order]
+ [1] 0.10278396 0.17801468 0.13855049 0.09813331 0.06956332 0.17529732 0.08395073 0.21911980 0.08022192 0.14143636
+[11] 0.22204893 0.37475997 0.08302469 0.25016977 0.17146834 0.08544611 0.55109949 0.12831772 0.28764896 0.12081764
+[21] 0.07148936 0.30347674 0.32245538 0.24888505 0.21581519 0.26489227 0.12485889 0.24037122 0.10318575 0.10689063
+[31] 0.15478450 0.38864536 0.24361669 0.41919864 0.22505166 0.09183059 0.15122790 0.53685083 0.25402150 0.54921362
+[41] 0.50305766 0.26897098 0.19395018 0.32049455 0.56425844 0.55414798 0.60623639 0.50898799 0.49191238 0.20758650
+[51] 0.49192205 0.42861322 0.40272046 0.47744960 0.45452976 0.33650994 0.32027391 0.80371631
+> 
+> map_data$pcthispanic2010 <- y2010$pcthispanic[match_order]
+> hist(map_data$pcthispanic2010)
+> map_breaks <- c(0, .1, .2, .3, .4, 1)
+> buckets <- cut(map_data$pcthispanic2010, breaks = map_breaks)
+> numeric_buckets <- as.numeric(buckets)
+> colors <- brewer.pal(5, "PuRd")
+Error: could not find function "brewer.pal"
+> install.packages("RColorBrewer")
+trying URL 'http://streaming.stat.iastate.edu/CRAN/bin/macosx/contrib/3.0/RColorBrewer_1.0-5.tgz'
+Content type 'application/x-gzip' length 22725 bytes (22 Kb)
+opened URL
+==================================================
+downloaded 22 Kb
+
+
+The downloaded binary packages are in
+	/var/folders/7m/plddkv853tg532crqjdcs8kw0000gn/T//RtmpLnXU3L/downloaded_packages
+> library(RColorBrewer)
+> display.brewer.all()
+> colors <- brewer.pal(5, "PuRd")
+> colors[numeric_buckets]
+ [1] "#D7B5D8" "#D7B5D8" "#D7B5D8" "#F1EEF6" "#F1EEF6" "#D7B5D8" "#F1EEF6" "#DF65B0" "#F1EEF6" "#D7B5D8" "#DF65B0"
+[12] "#DD1C77" "#F1EEF6" "#DF65B0" "#D7B5D8" "#F1EEF6" "#980043" "#D7B5D8" "#DF65B0" "#D7B5D8" "#F1EEF6" "#DD1C77"
+[23] "#DD1C77" "#DF65B0" "#DF65B0" "#DF65B0" "#D7B5D8" "#DF65B0" "#D7B5D8" "#D7B5D8" "#D7B5D8" "#DD1C77" "#DF65B0"
+[34] "#980043" "#DF65B0" "#F1EEF6" "#D7B5D8" "#980043" "#DF65B0" "#980043" "#980043" "#DF65B0" "#D7B5D8" "#DD1C77"
+[45] "#980043" "#980043" "#980043" "#980043" "#980043" "#DF65B0" "#980043" "#980043" "#980043" "#980043" "#980043"
+[56] "#DD1C77" "#DD1C77" "#980043"
+> plot(shapes, col=collors[numeric_buckets])
+Error in plot.SpatialPolygons(x, ...) : object 'collors' not found
+> plot(shapes, col=colors[numeric_buckets])
+> title("Percent of Hispanic Population by County in 2010")
+> ?legend
+starting httpd help server ... done
+> 
